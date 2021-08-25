@@ -6,6 +6,7 @@ import { compose } from '../../utils';
 import Spinner from '../../components/spinner';
 import ErrorIndicator from '../../components/error-indicator';
 import BookList from '../../components/book-list';
+import { bindActionCreators } from 'redux';
 
 const BookListContainer = ({ books, loading, error, fetchBooks, onAddedToCart }) => {
     useEffect(() => {
@@ -29,10 +30,10 @@ const mapStateToProps = ({ bookList: { books, loading, error } }) => {
 };
 
 const mapDispatchToProps = (dispatch, { bookstoreService }) => {
-    return {
-        fetchBooks: fetchBooks(bookstoreService, dispatch),
-        onAddedToCart: (id) => dispatch(bookAddedToCart(id)),
-    };
+    return bindActionCreators({
+        fetchBooks: fetchBooks(bookstoreService),
+        onAddedToCart: bookAddedToCart,
+    }, dispatch);
 };
 
 export default compose(
