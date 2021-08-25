@@ -1,0 +1,38 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #000;
+
+    a {
+        display: block;
+    }
+
+    .logo {
+        font-size: 3rem;
+        text-decoration: none;
+        font-weight: 700;
+        font-family: "Playfair Display", sans-serif;
+        transition: color 0.3s;
+
+        &:hover {
+            color: lighten(#000000, 45) !important;
+        }
+    }
+
+    .cart {
+        color: #000;
+        text-align: center;
+        text-decoration: none;
+        transition: color 0.3s;
+
+        i {
+            color: green;
+            font-size: 25px;
+        }
+
+        &:hover {
+            color: lighten(#000000, 45);
+        }
+    }
+}
